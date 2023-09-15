@@ -1,3 +1,3 @@
-export const listproducts = (req, res) => {
-    res.send("Esto es una prueba")
+export const listcategories = (req, res) => {
+    res.send("Esto es una prueba de categorias")
 }
