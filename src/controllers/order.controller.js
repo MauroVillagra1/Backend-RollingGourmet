@@ -1,3 +1,33 @@
-export const listorders = (req, res) => {
-    res.send("Esto es una prueba de pedidos")
+import Order from "../models/orders.js"
+
+export const listOrders = async (req, res) => {
+    try{
+        const orders = await Order.find()
+        res.status(200).json(orders)
+        console.log(orders)
+    }
+    catch(error){
+        console.log(error)
+        res.status(404).json({
+            message: "Error when searching for orders"
+        })
+    }
+}
+
+export const createOrders  = async (req, res) => {
+    try{
+        console.log(req.body)
+        const newOrders = new Order(req.body)
+        await newOrders.save()
+        res.status(201).json({
+            message: "The Orders was created successfully"
+        }
+        )
+    }
+    catch(error){
+        console.log(error)
+        res.status(400).json({
+            message: "The product could not be created"
+        })
+    }
 }

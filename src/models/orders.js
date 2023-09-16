@@ -7,15 +7,11 @@ const orderSchema = new Schema({
     },
     UserName:{
         type: String,
-        required: true,
-        minLength: 4,
-        maxLength: 20
+        required: true
     },
     Email:{
         type: String,
-        required: true,
-        minLength: 6,
-        maxLength: 320
+        required: true
     },
     ProductID: {
         type: String,
@@ -23,21 +19,15 @@ const orderSchema = new Schema({
     },
     Price:{
         type: Number,
-        require: true,
-        min: 100,
-        max: 100000
+        require: true
     },
     ProductName: {
         type: String,
-        required: true,
-        minLength: 2,
-        maxLength: 50
+        required: true
     },
     Image: {
         type: String,
-        required: true,
-        minLength: 10,
-        maxLength: 2000
+        required: true
     }
 })
 
