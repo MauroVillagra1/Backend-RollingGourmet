@@ -8,6 +8,8 @@ import categoryRouter from "./src/routes/category.route.js";
 import userRouter from "./src/routes/user.route.js";
 import "./src/database/database.js"
 import path from "path";
+import { fileURLToPath } from 'url';
+
 
 
 const app = express();
@@ -20,9 +22,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(morgan("dev"))
-
-app.use("/api", (req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, "public", "index.html"));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(path.dirname(fileURLToPath(import.meta.url)), "public", "index.html"));
   });
 
 app.use("/api", productRouter)
