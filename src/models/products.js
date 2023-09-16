@@ -3,14 +3,14 @@ import mongoose, {Schema} from "mongoose";
 const productSchema = new Schema({
     NameProduct:{
         type: String,
-        required: true,
+        require: true,
         unique: true,
         minLength: 2,
         maxLength: 50
     },
     State:{
         type: String,
-        required: true
+        require: true
     },
     Price:{
         type: Number,
