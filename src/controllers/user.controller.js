@@ -34,7 +34,7 @@ export const createUsers = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).json({
-      message: "The product could not be created",
+      message: "The users could not be created",
     });
   }
 };

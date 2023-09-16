@@ -33,7 +33,14 @@ const productSchema = new Schema({
         required: true,
         minLength: 10,
         maxLength: 2000
+    },
+    Stock:{
+        type: Number,
+        required: true,
+        min: 1,
+        max: 100
     }
+
 })
 
 const Product = mongoose.model("product", productSchema)
