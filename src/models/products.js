@@ -3,40 +3,40 @@ import mongoose, {Schema} from "mongoose";
 const productSchema = new Schema({
     NameProduct:{
         type: String,
-        require: true,
+        required: true,
         unique: true,
         minLength: 2,
         maxLength: 50
     },
     State:{
         type: String,
-        require: true
+        required: true
     },
     Price:{
         type: Number,
-        require: true,
+        required: true,
         min: 100,
         max: 100000
     },
     Details:{
         type: String,
-        require: true,
+        required: true,
         minLength: 20,
         maxLength: 500
     },
     CategoriesID: {
         type: Array,
-        require: true
+        required: true
     },
     Image: {
         type: String,
-        require: true,
+        required: true,
         minLength: 10,
         maxLength: 2000
     },
     Stock:{
         type: Number,
-        require: true,
+        required: true,
         min: 1,
         max: 100
     }

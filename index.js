@@ -7,8 +7,7 @@ import orderRouter from "./src/routes/order.route.js";
 import categoryRouter from "./src/routes/category.route.js";
 import userRouter from "./src/routes/user.route.js";
 import "./src/database/database.js"
-import path from "path";
-import { fileURLToPath } from 'url';
+
 
 
 
@@ -22,9 +21,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(morgan("dev"))
-app.get("/", (req, res) => {
-    res.sendFile(path.join(path.dirname(fileURLToPath(import.meta.url)), "public", "index.html"));
-  });
+
 
 app.use("/api", productRouter)
 app.use("/api", orderRouter)
