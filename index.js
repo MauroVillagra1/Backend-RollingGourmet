@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(morgan("dev"))
 
 app.use("/api", (req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
+    res.status(404).sendFile(path.join(__dirname, "public", "index.html"));
   });
 
 app.use("/api", productRouter)
