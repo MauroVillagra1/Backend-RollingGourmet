@@ -67,3 +67,18 @@ export const deleteProduct  = async (req, res) => {
         })
     }
 }
+
+export const getProduct  = async (req, res) => {
+    try{
+        console.log(req.params.id)
+        const searchedProduct = await Product.findById(req.params.id)
+        
+        res.status(200).json(searchedProduct)
+    }
+    catch(error){
+        console.log(error)
+        res.status(400).json({
+            message: "The product could not be geted"
+        })
+    }
+}
