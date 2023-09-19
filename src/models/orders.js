@@ -5,6 +5,10 @@ const orderSchema = new Schema({
         type: Array,
         required: true
     },
+    IdUser:{
+        type: String,
+        required: true
+    },
     State:{
         type: String,
         required: true
