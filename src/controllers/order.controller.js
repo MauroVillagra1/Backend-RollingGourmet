@@ -48,3 +48,18 @@ export const deleteOrders  = async (req, res) => {
         })
     }
 }
+
+export const getOrders  = async (req, res) => {
+    try{
+        console.log(req.params.id)
+        const searchedOrder = await Order.findById(req.params.id)
+        
+        res.status(200).json(searchedOrder)
+    }
+    catch(error){
+        console.log(error)
+        res.status(400).json({
+            message: "The Order could not be geted"
+        })
+    }
+}
