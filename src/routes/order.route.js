@@ -4,5 +4,5 @@ import { createOrders, deleteOrders, listOrders } from "../controllers/order.con
 const router = Router();
 
 router.route("/orders").get(listOrders).post(createOrders)
-router.route("/orders/:id").delete(deleteOrders)
+router.route("/orders/:id").delete(deleteOrders).get(listOrders)
 export default router

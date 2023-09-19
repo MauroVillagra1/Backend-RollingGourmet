@@ -31,3 +31,20 @@ export const createOrders  = async (req, res) => {
         })
     }
 }
+export const deleteOrders  = async (req, res) => {
+    try{
+        console.log(req.params.id)
+        await Order.findByIdAndDelete(req.params.id)
+        
+        res.status(200).json({
+            message: "The order was deleted successfully"
+        }
+        )
+    }
+    catch(error){
+        console.log(error)
+        res.status(400).json({
+            message: "The order could not be deleted"
+        })
+    }
+}
