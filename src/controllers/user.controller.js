@@ -42,7 +42,7 @@ export const createUsers = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { Email, Password } = req.body;
-    let user = await User.findOne({ Email: req.body.Email });
+    let user = await User.findOne({ Email });
     if (!user) {
       return res.status(400).json({
         message: "Email or Password Incorrect",
@@ -55,7 +55,9 @@ export const login = async (req, res) => {
       });
     }
     res.status(200).json({
-        message: "The user is correct"
+        message: "The user is correct",
+        uid: user._id,
+        name: user.Name
     })
   } catch (error) {
     res.status(400).json({
