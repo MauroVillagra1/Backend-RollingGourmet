@@ -63,3 +63,21 @@ export const getOrders  = async (req, res) => {
         })
     }
 }
+
+export const editOrders  = async (req, res) => {
+    try{
+        console.log(req.params.id)
+        await Order.findByIdAndUpdate(req.params.id,req.body)
+        
+        res.status(200).json({
+            message: "The Order was edited successfully"
+        }
+        )
+    }
+    catch(error){
+        console.log(error)
+        res.status(400).json({
+            message: "The order could not be edited"
+        })
+    }
+}
