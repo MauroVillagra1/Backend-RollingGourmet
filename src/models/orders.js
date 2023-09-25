@@ -9,6 +9,10 @@ const orderSchema = new Schema({
         type: String,
         required: true
     },
+    NameUser:{
+        type: String,
+        required: true
+    },
     State:{
         type: String,
         required: true
