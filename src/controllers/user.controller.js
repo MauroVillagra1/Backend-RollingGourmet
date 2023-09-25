@@ -1,3 +1,4 @@
+import generarJWT from "../helpers/token-sign.js";
 import User from "../models/users.js";
 import bcrypt from "bcrypt";
 export const listUsers = async (req, res) => {
@@ -54,11 +55,24 @@ export const login = async (req, res) => {
         message: "Email or Password Incorrect",
       });
     }
-    res.status(200).json({
+    if (user.Role === "Admin")
+    {
+      const token = await generarJWT(user._id, user.Name, user.Role)
+      res.status(200).json({
+        message: "The user is correct",
+        uid: user._id,
+        name: user.Name,
+        token: token
+    })
+    }
+    else{
+      res.status(200).json({
         message: "The user is correct",
         uid: user._id,
         name: user.Name
     })
+    }
+    
   } catch (error) {
     res.status(400).json({
       message: "Email or Password incorrect",
