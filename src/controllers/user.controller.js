@@ -62,7 +62,8 @@ export const login = async (req, res) => {
         message: "The user is correct",
         uid: user._id,
         name: user.Name,
-        token: token
+        token: token,
+        rol: user.Role
     })
     }
     else{
