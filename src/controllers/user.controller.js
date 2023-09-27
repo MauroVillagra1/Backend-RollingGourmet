@@ -63,7 +63,8 @@ export const login = async (req, res) => {
         uid: user._id,
         name: user.Name,
         token: token,
-        rol: user.Role
+        rol: user.Role,
+        img: user.ProfilePicture
     })
     }
     else{
@@ -72,7 +73,8 @@ export const login = async (req, res) => {
         uid: user._id,
         name: user.Name,
         token: "",
-        rol: user.Role
+        rol: user.Role,
+        img: user.ProfilePicture
 
     })
     }
