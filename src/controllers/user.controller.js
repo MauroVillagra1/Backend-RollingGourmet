@@ -55,7 +55,7 @@ export const login = async (req, res) => {
         message: "Email or Password Incorrect",
       });
     }
-    if(User.State === "Suspended")
+    if(user.State === "Suspended")
     {
       return res.status(400).json({
         message: "User Suspended",
