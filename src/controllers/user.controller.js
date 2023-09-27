@@ -55,6 +55,12 @@ export const login = async (req, res) => {
         message: "Email or Password Incorrect",
       });
     }
+    if(User.State === "Suspended")
+    {
+      return res.status(400).json({
+        message: "User Suspended",
+      });
+    }
     if (user.Role === "Admin")
     {
       const token = await generarJWT(user._id, user.Name, user.Role)
@@ -85,3 +91,21 @@ export const login = async (req, res) => {
     });
   }
 };
+
+export const editUser  = async (req, res) => {
+  try{
+      console.log(req.params.id)
+      await User.findByIdAndUpdate(req.params.id,req.body)
+      
+      res.status(200).json({
+          message: "The User was edited successfully"
+      }
+      )
+  }
+  catch(error){
+      console.log(error)
+      res.status(400).json({
+          message: "The User could not be edited"
+      })
+  }
+}
