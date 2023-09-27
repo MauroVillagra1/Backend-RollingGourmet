@@ -7,6 +7,6 @@ const router = Router();
 
 router.route("/").get([validarJWT],listUsers).post(login)
 router.route("/users").post(createUsers)
-router.route("/user/:id").put([validarJWT],editUser)
+router.route("/users/:id").put([validarJWT],editUser)
 router.route("/user/admin").post([validarJWT],createUsers)
 export default router
