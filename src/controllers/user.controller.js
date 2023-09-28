@@ -17,6 +17,7 @@ export const listUsers = async (req, res) => {
 export const createUsers = async (req, res) => {
   try {
     const { Email, Password } = req.body;
+    user.State = "User"
     let user = await User.findOne({ Email: req.body.Email });
     if (!user) {
       const newUsers = new User(req.body);
@@ -34,7 +35,7 @@ export const createUsers = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(400).json({
+    res.status(404).json({
       message: "The users could not be created",
     });
   }
