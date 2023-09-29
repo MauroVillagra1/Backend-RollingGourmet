@@ -9,6 +9,8 @@ import {
 import { check } from "express-validator";
 import validarJWT from "../helpers/token-verify.js";
 
+
+
 const router = Router();
 
 router

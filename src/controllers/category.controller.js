@@ -1,7 +1,16 @@
+import { validationResult } from "express-validator"
 import Category from "../models/categoryies.js"
 
 export const listCategories = async (req, res) => {
     try{
+
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            return res.status(400).json({
+                errors: errors.array()
+            })
+        }
+
         const categories = await Category.find()
         res.status(200).json(categories)
         console.log(categories)
