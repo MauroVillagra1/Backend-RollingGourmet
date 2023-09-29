@@ -30,14 +30,12 @@ export const createUsers = async (req, res) => {
         _id: newUsers._id,
       });
     }
-    else{
-      res.status(400).json({
-        message: "The user exists",
-      });
-    }
+    // res.status(400).json({
+    //   message: "The user exists",
+    // });
   } catch (error) {
     console.log(error);
-    res.status(404).json({
+    res.status(400).json({
       message: "The users could not be created",
     });
   }
