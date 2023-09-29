@@ -18,7 +18,7 @@ export const createUsers = async (req, res) => {
   try {
     const { Email, Password } = req.body;
     user.State = "User"
-    let user = await User.findOne({ Email: req.body.Email });
+    let user = await User.findOne({ Email });
     if (!user) {
       const newUsers = new User(req.body);
       const salt = bcrypt.genSaltSync(10);
