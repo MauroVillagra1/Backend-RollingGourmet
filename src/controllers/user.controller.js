@@ -17,7 +17,9 @@ export const listUsers = async (req, res) => {
 export const createUsers = async (req, res) => {
   try {
     const { Email, Password } = req.body;
-    User.State = "User";
+    User.State = "Active"
+    User.Role = "User"
+    User.ProfilePicture = "https://res.cloudinary.com/dhe7vivfw/image/upload/v1694745378/Rolling%20Gourmet/IMG%20USER/avatardefault_92824_son9pd.png"
     let user = await User.findOne({ Email: req.body.Email });
     if (!user) {
       const newUsers = new User(req.body);
