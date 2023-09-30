@@ -1,3 +1,4 @@
+import { validationResult } from "express-validator"
 import Category from "../models/categoryies.js"
 
 export const listCategories = async (req, res) => {
