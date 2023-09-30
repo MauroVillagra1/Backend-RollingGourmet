@@ -3,20 +3,13 @@ import {
   createCategories,
   listCategories,
 } from "../controllers/category.controller.js";
-import { check } from "express-validator";
+import categoryValidations from "../helpers/categoryValidations.js";
 
 const router = Router();
 
 router
   .route("/categories")
   .get(listCategories)
-  .post(
-    [
-      check("Category")
-        .notEmpty()
-        .withMessage('the "category" field is required'),
-    ],
-    createCategories
-  );
+  .post(categoryValidations, createCategories);
 
 export default router;
