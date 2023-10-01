@@ -10,7 +10,7 @@ import orderValidations from "../helpers/orderValidations.js";
 
 const router = Router();
 
-router.route("/orders").get(listOrders).post(orderValidations, createOrders);
+router.route("/orders").get(listOrders).post(createOrders);
 
 router
   .route("/orders/:id")
