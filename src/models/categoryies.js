@@ -5,7 +5,8 @@ const categorySchema = new Schema({
         type: String,
         required: true,
         minLength: 4,
-        maxLength: 30
+        maxLength: 30,
+        unique: true
     }
 })
 
